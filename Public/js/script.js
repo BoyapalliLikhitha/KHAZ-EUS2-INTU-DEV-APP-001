@@ -4,11 +4,34 @@ closeBtn.addEventListener('click',()=>{hideDialog('messageDialog')});
 
 const themeToggle = document.getElementById('themeToggle');
 
+// Function to apply theme based on preference
+function applyTheme(theme) {
+    if (theme === 'light') {
+        document.body.classList.add('light-mode');
+        themeToggle.checked = true;
+    } else {
+        document.body.classList.remove('light-mode');
+        themeToggle.checked = false;
+    }
+}
+
+// On page load, check the stored theme preference
+document.addEventListener('DOMContentLoaded', () => {
+    log('Document loaded, applying stored theme preference');
+    const storedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark mode
+    applyTheme(storedTheme);
+});
+
+// Event listener for theme toggle switch
 themeToggle.addEventListener('change', () => {
     if (themeToggle.checked) {
         document.body.classList.add('light-mode'); // Switch to light mode
+        localStorage.setItem('theme', 'light'); // Save preference to localStorage
+        log('Switched to light mode');
     } else {
         document.body.classList.remove('light-mode'); // Switch back to dark mode
+        localStorage.setItem('theme', 'dark'); // Save preference to localStorage
+        log('Switched to dark mode');
     }
 });
 
