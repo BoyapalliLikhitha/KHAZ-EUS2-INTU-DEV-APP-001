@@ -1,0 +1,9 @@
+{
+    "azureAutomation.directory.basePath": "c:\\Users\\lboyapal",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/7ece2978-6536-429f-a996-a1e8ac52601e/resourceGroups/Automation/providers/Microsoft.Web/sites/KraftUtility",
+    "appService.deploySubpath": "."
+}

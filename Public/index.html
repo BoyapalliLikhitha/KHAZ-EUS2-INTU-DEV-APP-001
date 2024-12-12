@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intune Functionality Control</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        
+        <!--div class="sidebar-logo"><img class="logo" src="https://logodownload.org/wp-content/uploads/2019/05/kraft-heinz-logo-0.png" alt="Logo" style="width: 170px;"></div-->
+        <div class="sidebar-logo"><br><img class="logo" src="https://logodownload.org/wp-content/uploads/2019/05/kraft-heinz-logo-2-599x101.png" alt="Logo" style="width: 200px;"></div><br>
+         <div class="sidebar-menu-title">Device Operations</div>
+        <ul class="sidebar-menu">
+            <li><a href="#" id="sync" class="menu-item"><i class="fas fa-sync"></i> Sync</a></li>
+            <li><a href="#" id="reboot" class="menu-item"><i class="fas fa-power-off"></i> Reboot</a></li>
+            <li><a href="#" id="recoveryKey" class="menu-item"><i class="fas fa-key"></i> Recovery Key</a></li>
+            <li><a href="#" id="localAdminPassword" class="menu-item"><i class="fas fa-user-shield"></i> Local Admin Password</a></li>
+            <li><a href="#" id="reset" class="menu-item"><i class="fas fa-redo-alt"></i> Reset</a></li>
+            <li><a href="#" id="logout" class="menu-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">Intune Functionality Control</div>
+        <div class="input-container" id="inputDialog">
+            <!--h2>Input Details</h2-->
+            <!--div class="sidebar-menu-title">Input Details</div-->
+            <div class="sidebar-menu-title" >Input Details</div>
+
+            <input type="text" id="ticketNo" class="input-field" placeholder="Ticket No" maxlength="10">
+            <input type="email" id="userEmail" class="input-field" placeholder="User Email">
+            <button id="submitBtn" class="submit-btn">Submit</button>
+        </div>
+
+        <div class="loading-spinner" id="loading-Spinner" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i> Fetching devices...
+        </div>
+       
+        <div id="loadingSpinner" class="dialog">
+            <div class="dialog-content">
+                <div class="spinner"></div>
+                <p>Processing your request, please wait...</p>
+            </div>
+        </div>
+
+        <div class="dialog-overlay" id="deviceDialogOverlay" style="display: none;">
+            <div class="dialog-box" id="deviceDialog">
+                <h2> Device List</h2>
+                <select id="deviceList" class="input-field"><option value="" selected disabled>Select a Device</option></select>
+            </div>  
+        </div>
+        <div id="messageDialog" class="dialog">
+            <div class="dialog-content">
+                <span class="close">&times;</span>
+                <div class="icon-container">
+                    <div id="messageIcon" class="icon"></div>
+                </div>
+                <p id="messageText"></p>
+            </div>
+        </div>
+
+        <div class="audit-message-container">
+            
+            <div class="audit-message" style="font-style: italic;">
+                All actions performed in this tool are being audited and monitored. Please be aware that your usage may be subject to review and analysis :)
+            </div>
+        </div>
+    </div>
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider">
+                <span class="label-light" >Dark</span>
+                <span class="label-dark">Light</span>
+            </span>
+        </label>
+    </div>
+    
+    
+    
+    <div class="right-sidebar">
+        <div class="device-info" id="deviceInfo">
+            <!--h2>Device Information</h2-->
+            <div class="sidebar-menu-title">Device Information</div><br>
+            <p><i class="fas fa-desktop"></i><span class="label">Device Name:</span><span id="deviceName">N/A</span></p>
+            <p><i class="fas fa-id-badge"></i><span class="label">Azure ID:</span><span id="azureId">N/A</span></p>
+            <p><i class="fas fa-id-card"></i><span class="label">Device ID:</span><span id="id">N/A</span></p>
+            <p><i class="fas fa-user-shield"></i><span class="label">Ownership:</span><span id="ownership">N/A</span></p>
+            <p><i class="fas fa-phone"></i><span class="label">Phone Number:</span><span id="phoneNumber">N/A</span></p>
+            <p><i class="fas fa-industry"></i><span class="label">Manufacturer:</span><span id="deviceManufacturer">N/A</span></p>
+            <p><i class="fas fa-user"></i><span class="label">Primary User:</span><span id="primaryUser">N/A</span></p>
+            <p><i class="fas fa-user-check"></i><span class="label">Enrolled Date:</span><span id="enrolledDate">N/A</span></p>
+            <p><i class="fas fa-check-circle"></i><span class="label">Compliance State:</span><span id="compliance">N/A</span></p>
+            <p><i class="fas fa-laptop"></i><span class="label">Operating System:</span><span id="operatingSystem">N/A</span></p>
+            <p><i class="fas fa-mobile-alt"></i><span class="label">Device Model:</span><span id="deviceModel">N/A</span></p>
+            <p><i class="fas fa-clock"></i><span class="label">Last Check-In Time:</span><span id="lastCheckInTime">N/A</span></p>
+            <p><i class="fas fa-laptop"></i><span class="label">OS Version:</span><span id="osVersion">N/A</span></p>
+        </div>
+    </div>
+    
+    
+
+    <script src="js/script.js"></script>
+</body>
+</html>

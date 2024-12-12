@@ -1,0 +1,576 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #fff;
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar, .right-sidebar {
+    width: 300px; /* Increased width */
+    background-color: #1c2833;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #3498db;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu a {
+    color: #bdc3c7;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-menu a:hover, .sidebar-menu a.active {
+    color: #fff;
+    background-color: #3498db;
+}
+
+/*
+.sidebar-menu-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sidebar-menu-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #3498db;
+}
+*/
+
+.sidebar-menu-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sidebar-menu-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #3498db;
+}
+
+
+
+.sidebar-menu i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: #1c2833;
+    background-color: #3498db;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-container {
+    background-color: #34495e;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 600px;
+}
+
+.input-container h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-field {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #3498db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #2c3e50;
+}
+
+.input-field::placeholder {
+    color: #bdc3c7;
+}
+
+.input-field:disabled {
+    background-color: #2c3e50;
+    color: #95a5a6;
+}
+
+.submit-btn {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.device-info {
+    margin-top: 30px;
+    max-width: 100%; /* Ensures the container does not exceed the parent width */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.device-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #bdc3c7;
+    flex-wrap: wrap; /* Allows content inside to wrap to the next line if needed */
+}
+
+.device-info i {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #fff;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0; /* Ensures icons maintain their size */
+}
+
+.device-info .label {
+    color: #fff;
+    margin-right: 10px;
+    white-space: nowrap; /* Keeps labels on a single line */
+    flex-shrink: 0; /* Prevents the label from shrinking */
+}
+
+.device-info span {
+    max-width: 100%; /* Ensures spans don't overflow the container */
+    word-wrap: break-word; /* Allows long words to break and wrap */
+    word-break: break-word; /* Breaks long words if needed */
+    overflow-wrap: break-word; /* Ensures text wrapping is applied across browsers */
+    white-space: normal; /* Allows text to wrap onto the next line */
+}
+
+
+.user-info {
+    background-color: #34495e;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-email {
+    color: #fff;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+/* Dialog styles */
+.dialog {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    overflow: auto;
+}
+
+/* Dialog content */
+.dialog-content {
+    background-color: #34495e; /* Match the input dialog background */
+    margin: 15% auto; /* Centered */
+    padding: 20px;
+    border: 1px solid #3498db; /* Match the input dialog border color */
+    width: 60%; /* Adjust width as needed */
+    max-width: 600px; /* Maximum width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center; /* Center-align text */
+}
+
+/* Close button */
+.dialog-content .close {
+    color: #bdc3c7; /* Match the input field placeholder color */
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.dialog-box {
+    /*background-color: #34495e;*/
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%; /* Increased from original size */
+    max-width: 8000px; /* Increased from original size */
+}
+
+
+
+.dialog-content .close:hover {
+    color: #fff; /* Change color on hover to match active link color */
+}
+
+/* Icon container */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Space between icon and message */
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.icon.success {
+    background-color: #27ae60;
+    color: white;
+}
+
+.icon.error {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3); /* Light gray */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.main-content {
+    position: relative; /* Needed for absolute positioning of audit message */
+}
+
+.audit-message-container {
+    background-color: #2c3e50;
+    border-top: 2px solid #3498db;
+    padding: 20px;
+    font-size: 14px;
+    color: #eff4f8;
+    overflow-y: auto;
+    max-height: 150px;
+    position: absolute;
+    bottom: 0;
+    left: 0px; /* Aligned with main content area */
+    right: 0px; /* Aligned with main content area */
+    margin-top: 20px;
+}
+
+.audit-message-container:before {
+    content: "Audit & Monitoring";
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c8fd6;
+    margin-bottom: 10px;
+}
+
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Toggle switch styles */
+.toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #3498db;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Light mode styles */
+body.light-mode {
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+    color: #2c3e50;
+}
+
+body.light-mode .sidebar,
+body.light-mode .right-sidebar {
+    background-color: #ffffff;
+    color: #2c3e50;
+}
+
+body.light-mode .sidebar-logo {
+    color: #2980b9;
+}
+
+body.light-mode .sidebar-menu a {
+    color: #2c3e50;
+}
+
+body.light-mode .sidebar-menu a:hover,
+body.light-mode .sidebar-menu a.active {
+    color: #fff;
+    background-color: #2980b9;
+}
+
+body.light-mode .header {
+    color: #ffffff;
+    background-color: #2980b9;
+}
+
+body.light-mode .input-container {
+    background-color: #ffffff;
+}
+
+body.light-mode .input-field {
+    color: #2c3e50;
+    background-color: #ecf0f1;
+}
+
+body.light-mode .input-field::placeholder {
+    color: #7f8c8d;
+}
+
+body.light-mode .submit-btn {
+    background-color: #2980b9;
+}
+
+body.light-mode .submit-btn:hover {
+    background-color: #1f618d;
+}
+
+body.light-mode .device-info p {
+    color: #2c3e50;
+}
+
+body.light-mode .user-info {
+    background-color: #ffffff;
+}
+
+body.light-mode .user-email {
+    color: #2c3e50;
+}
+
+body.light-mode .audit-message-container {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+}
+
+body.light-mode .audit-message-container:before {
+    color: #2980b9;
+}
+body.light-mode .device-info .label {
+    color: #000; /* Black text for light mode */
+}
+
+body.light-mode .device-info i {
+    color: #000; /* Black text for light mode */
+}
+
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 80px; /* Adjust width to fit both labels */
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px; /* Padding to keep labels inside */
+    font-size: 14px; /* Increased font size for better visibility */
+    font-weight: bold; /* Make labels bold */
+    color: #333; /* Darker color for improved visibility */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #3498db;
+}
+
+input:checked + .slider:before {
+    transform: translateX(48px); /* Moves the slider thumb */
+}
+
+/* Label positioning */
+.label-light {
+    position: absolute;
+    left: 10px; /* Adjust to position "Light" */
+    opacity: 0;
+    transition: opacity 0.4s;
+    color: #fff; /* Color for light mode label */
+}
+
+.label-dark {
+    position: absolute;
+    right: 10px; /* Adjust to position "Dark" */
+    opacity: 1;
+    transition: opacity 0.4s;
+    color: #fff; /* Color for dark mode label */
+}
+
+input:checked + .slider .label-light {
+    opacity: 1;
+}
+
+input:checked + .slider .label-dark {
+    opacity: 0;
+}
+body.light-mode .dialog-content {
+    background-color: #ffffff;
+    color: #2c3e50;
+    border: 1px solid #2980b9;
+}
+
+body.light-mode .dialog-content .close {
+    color: #2980b9;
+}
